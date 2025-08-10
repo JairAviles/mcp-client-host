@@ -28,6 +28,19 @@ async def run():
                 result = await session.call_tool("airbnb_search", arguments={"location": "Florianopolis"})
                 print("Tool result:", result)
 
+                # RESOURCES
+
+                print("Listing resources...")
+                resources = await session.list_resources()
+                print("Available resources:", resources)
+
+                print("Listing resources templates...")
+                resources = await session.list_resource_templates()
+                print("Available resource templates:", resources)
+
+                print("Getting resource")
+                resource = await session.read_resource("airbnb://listing/12345")
+                print(resource)
 
 
     except Exception as e:
